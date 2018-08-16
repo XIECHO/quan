@@ -1,7 +1,7 @@
 
 # Source code
-You can clone my repository quan and it can run in intellij idea, you may need add j-science libaray
-# Qsimulation Grammer
+You can clone the repository quan and it can run in intellij idea, you may need add j-science libaray
+# QSimulation Grammer
 <pre>
 Program     --------> Declare { ; Statement }
 Declare     --------> Quantum Identifier INT [Explist]
@@ -29,7 +29,7 @@ Identifier := [a-zA-Z]*
 Array := [a-zA-Z]*\[INT\]
 
 </pre>
-The list grammer has been used in the Qsimulation. We will add some useful grammer in the future.
+The list grammer has been used in the QSimulation. We will add some other grammer in the future.
 # QSimulation statements
 Statement  | Description 
 :-|:-
@@ -47,13 +47,14 @@ Alias Argument, Argument	| 给一个Argument取别名为第二个Argument
 IF Bool Then Statement { ; Statement } FI	| 经典判断语句，根据测量结果，判断是否执行相对应操作
 
 
-# Qsimulation Structure
+# QSimulation Structure
 <img src="images/echo.PNG">
+
 # How to use
 
-As you can see, the above picture is screenshot of Qsimulation.    
+As you can see, the above picture is screenshot of QSimulation.    
 
-## black box area
+## left pane
 The black box area offers some buttons, which represent different functions.         
 
 ### initialization
@@ -71,6 +72,7 @@ built-gate(with parameters) U(x,y,z)
 U(θ,φ,λ) =  |                                               |
             |exp(i(φ-λ)/2)sin(θ/2)   exp(i(φ+λ)/2)cos(θ/2)  |
 and the global phase is exp(i(φ+λ)/2)/cos(θ/2)
+
 </pre>
 ### Binary Gate
 <pre> Now, we only present a binary gate: CNOT, and we will offer some other universal matrix, such as CNOT-S.
@@ -89,10 +91,9 @@ swap[q1,q2] = cnot[q1,q2]cnot[q2,q1]cnot[q1,q2].
 We only support 0-1 measure now, and we will offer some other measurements
 ### Classical control
 input: number of executions 
-
-It means we can test the program some times and Qsimulation will offer the final distribution of statistics.
-## red box area
-Qsimulation presents seven functions : import , save , restart, run, circuit, cirnext ,cirback
+It means we can test the program some times and QSimulation will offer the final distribution of statistics.
+## nav
+QSimulation presents some functions : import , save , restart, run, circuit, cirnext ,cirback, bloch
 
 - import : you can import the program to the editor
 - save : you can save the program 
@@ -101,9 +102,9 @@ Qsimulation presents seven functions : import , save , restart, run, circuit, ci
 - circuit : you can generate the quantum circuit
 - cirNext : you can debug the program
 - cirBack : you can debug the program
+- bloch: it can be simulated in bloch sphere
 
 # Example
-There are some examples in the file "example".
 ## quantum teleportation
 <pre>
 Quantum a 3;
@@ -119,7 +120,6 @@ Measure Alice1,i;
 Measure Alice2, j;
 if i then Z Bob fi;
 if j then X Bob fi
-
 </pre>
 
 ## quantum fourier transform
