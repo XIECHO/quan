@@ -1,42 +1,52 @@
-# Quantum-1.0.exe 
-Quantum-1.0.exe is an executable file as we can see in the same level
+
 # Source code
-You can clone my repository quan and it can run in eclipse, and you may need add j-science libaray
+You can clone my repository quan and it can run in intellij idea, you may need add j-science libaray
 # Qsimulation Grammer
 <pre>
-program --> statement {;statement}  
-statement --> declare | state   
-state --> if bool then state fi |  
-	  while bool do state od  |  
-	  Measure argument => ID |  
-	  IDstate |
-          Arraystate |
-          UOP |
-          BOP 
-declare --> Quantum Array | Quantum(exp,exp...) Array
-bool --> ID := INT
-argument --> ID | Array
-BOP --> CNOT argument argument
-UOP --> (X|Y|Z|S|SDG|T|TDG argument) | U(explist) argument
-explist --> exp; exp;exp;
-exp --> real | INT | pi |exp(+|-|/|* ) exp | -exp
+Program     --------> Declare { ; Statement }
+Declare     --------> Quantum Identifier INT [Explist]
+Statement  --------> Operator | Measurement | Show | Alias | IFStatement | Reset
+Operator    --------> UnaryOp | BinaryOp | GateOp | UOp
+UnaryOp     --------> X|Y|Z|S|SDG|T|TDG Argument
+BinaryOp    --------> CNOT Argument Argument
+GateOp      --------> Gate[Explist] Argument
+UOp         --------> U[Explist] Argument
+Measurement--------> Measure [ Argument Identifier ]
+Show        --------> Show
+Alias       --------> Alias Argument, Argument
+IFStatement---------> IF Bool Then Statement { ; Statement } FI
+Reset       ---------> Reset
+Bool       ----------> [!] Identifier
+Argument   ---------> Identifier | Array
+Explist    ---------> (Expression {, Expression})
+Expression ---------> Factor [+|-|*|/ Expression]
+Factor      ---------> [-] INT | Complex | Real
 
-ID := [a-zA-Z]* (without 'lastcome')
-real := ([0-9]+\.[0-9]* | [0-9]* \.[0-9]+)([eE][-+]?[0-9]+)?
 INT := [0-9]+
+Real := [0-9]+\.[0-9]*
+Complex := \< \-? Real \, \-? Real \>
+Identifier := [a-zA-Z]*
+Array := [a-zA-Z]*\[INT\]
+
 </pre>
-The list grammer has been used in the Qsimulation. We will add some useful grammer for example:statement "reset" , and statement "while", and these statements hava been shown in the code.
-# Qsimulation statements
+The list grammer has been used in the Qsimulation. We will add some useful grammer in the future.
+# QSimulation statements
 Statement  | Description 
 :-|:-
-Quantum name[size]   | Declare a quantum state
-Quantum name\[size\](param...)   | Declare a quantum state with parameters
-Identity := name[size] | Assignment
-Unary Identity \| name[size] | Apply built-in single qubit gate(H,S...)
-U(theta,phi,lambda) Identity \| name[size] | Apply built-in single qubit gate with parameters
-CNOT Identity \| name[size],Identity \| name[size] | Apply built-in CNOT gate
-Measure Identity \| name[size] =>Identity  | Make measurement
-if(Identity := int) then qop fi | Conditionally apply quantum operator
+
+Quantum Identifier INT	| 声明名为Identifier，含有INT位的量子寄存器
+Quantum Identifier INT Explist	| 声明名为Identifier，含有INT位的量子寄存器，并根据Explist初始化量子寄存器
+X|Y|Z|S|SDG|T|TDG Argument	| 内置单量子比特门操作
+U[Explist] Argument	| 单量子参数量子门操作
+CNOT Argument Argument	| 内置双量子比特门操作
+Gate[Explist] Argument	| 自定义量子门操作
+Measure 	| 量子状态的整体测量
+Measure [Argument Identifier ]	| 量子状态的子状态的测量
+Show	| 展示量子寄存器的当前状态
+Reset	| 重置量子寄存器
+Alias Argument, Argument	| 给一个Argument取别名为第二个Argument
+IF Bool Then Statement { ; Statement } FI	| 经典判断语句，根据测量结果，判断是否执行相对应操作
+
 
 # Qsimulation Structure
 <img src="/images/QSimulation.PNG">
@@ -93,36 +103,29 @@ Qsimulation presents seven functions : import , save , restart, run, circuit, ci
 - cirNext : you can debug the program
 - cirBack : you can debug the program
 
-## green box area
-It is code editor.
-## purple box area
-It will show quantum circuit.
-## yellow box area
-It will show the outcome.
-## blue box area
-It will show the final distribution of statistics.
 # Example
 There are some examples in the file "example".
 ## quantum teleportation
 <pre>
-Quantum a[3];
-Alice1 := a[0];
-Alice2 := a[1];
-Bob1 := a[2];
+Quantum a 3;
+Alias a[0] Alice1;
+Alias a[1] Alice2;
+Alias a[2] Bob;
 H Alice1;
 H Alice2;
-CNOT Alice2 Bob1;
+CNOT Alice2 Bob;
 CNOT Alice1 Alice2;
 H Alice1;
-Measure Alice1 => i;
-Measure Alice2 => j;
-if i==1 then Z Bob1 fi;
-if j==1 then X Bob1 fi
+Measure Alice1,i;
+Measure Alice2, j;
+if i then Z Bob fi;
+if j then X Bob fi
+
 </pre>
 
 ## quantum fourier transform
 <pre>
-Quantum q[3];
+Quantum q 3;
 X q[2];
 H q[0];
 T q[1];
@@ -146,4 +149,4 @@ CNOT q[0] q[2];
 CNOT q[2] q[0];
 CNOT q[0] q[2]
 </pre>
-Whenever you install Quantum-1.0.exe, it is easy to open the software.
+
