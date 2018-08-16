@@ -33,7 +33,6 @@ The list grammer has been used in the Qsimulation. We will add some useful gramm
 # QSimulation statements
 Statement  | Description 
 :-|:-
-
 Quantum Identifier INT	| 声明名为Identifier，含有INT位的量子寄存器
 Quantum Identifier INT Explist	| 声明名为Identifier，含有INT位的量子寄存器，并根据Explist初始化量子寄存器
 X|Y|Z|S|SDG|T|TDG Argument	| 内置单量子比特门操作
@@ -49,9 +48,9 @@ IF Bool Then Statement { ; Statement } FI	| 经典判断语句，根据测量结
 
 
 # Qsimulation Structure
-<img src="/images/QSimulation.PNG">
-# How to use
 <img src="/images/echo.PNG">
+# How to use
+
 As you can see, the above picture is screenshot of Qsimulation.    
 
 ## black box area
