@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/MainThemes.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MainController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#open" text="Open…" />
+            <MenuItem mnemonicParsing="false" onAction="#export" text="Save As…" />
+            <MenuItem fx:id="quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Run">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#run" text="run" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#restart" text="restart" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#circuit" text="circuit" />
+            <MenuItem mnemonicParsing="false" onAction="#next" text="next" />
+            <MenuItem mnemonicParsing="false" onAction="#forward" text="forward" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem fx:id="helpMe" mnemonicParsing="false" onAction="#help" text="About QSimulation" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <ToolBar fx:id="toolbar" prefHeight="40.0" prefWidth="200.0">
+        <items>
+            <Button fx:id="open" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#open" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="export" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#export" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="restart" minHeight="-Infinity" mnemonicParsing="false" onAction="#restart" prefHeight="16.0" prefWidth="14.0" />
+            <Button fx:id="run" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#run" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="circuit1" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#circuit" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="next" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#next" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="forward" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#forward" prefHeight="16.0" prefWidth="16.0" />
+            <Button fx:id="bloch" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#bloch" prefHeight="16.0" prefWidth="16.0" />
+        </items>
+      </ToolBar>
+    <SplitPane dividerPositions="0.2, 0.77" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
+      <items>
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minWidth="160.0" prefWidth="161.0" style="-fx-background-color: #c9d1d4;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
+               </rowConstraints>
+               <children>
+                  <Label text="Initialization" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="init" mnemonicParsing="false" onAction="#init" prefHeight="25.0" prefWidth="25.0" text="Init" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Label text="Unary Gates" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Button fx:id="X" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="X" userData="X" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="Y" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="Y" userData="Y" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="Z" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="Z" userData="Z" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="H" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="H" userData="H" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="T" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="T" userData="T" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="TDG" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="TDG" userData="TDG" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="S" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="S" userData="S" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="SDG" mnemonicParsing="false" onAction="#addUnary" prefHeight="25.0" prefWidth="25.0" text="SDG" userData="SDG" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="7.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="U" mnemonicParsing="false" onAction="#addU" prefHeight="25.0" prefWidth="25.0" text="U" userData="U" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="cnot" mnemonicParsing="false" onAction="#addCnot" prefHeight="25.0" prefWidth="25.0" text="cnot" userData="cnot" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="6.0" />
+                     </font>
+                  </Button>
+                  <Label text="Binary Gates" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                  <Button fx:id="measure" mnemonicParsing="false" onAction="#measure0" prefHeight="25.0" prefWidth="25.0" text="M0" userData="M" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Label text="Measurements" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="10" GridPane.valignment="CENTER" />
+                  <Label text="Classical Control" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" GridPane.valignment="CENTER" />
+                  <TextField fx:id="times" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER">
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button fx:id="showD" mnemonicParsing="false" onAction="#showD" prefHeight="25.0" prefWidth="25.0" text="go" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="initP" mnemonicParsing="false" onAction="#initP" prefHeight="25.0" prefWidth="25.0" text="ass" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Label contentDisplay="CENTER" text="User-defined" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
+                  <Button fx:id="G" mnemonicParsing="false" onAction="#addG" prefHeight="25.0" prefWidth="25.0" text="G" userData="U" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="measure1" mnemonicParsing="false" onAction="#measure0" prefHeight="25.0" prefWidth="25.0" text="M1" userData="M" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+                  <Button fx:id="measure2" mnemonicParsing="false" onAction="#measure2" prefHeight="25.0" prefWidth="25.0" text="M2" userData="M" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="11" GridPane.valignment="CENTER">
+                     <font>
+                        <Font size="8.0" />
+                     </font></Button>
+               </children>
+            </GridPane>
+            <SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" orientation="VERTICAL">
+               <items>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane fx:id="circuitpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                     </content></ScrollPane>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <AnchorPane fx:id="outcomepane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+                     </content></ScrollPane>
+               </items>
+            </SplitPane>
+            <SplitPane dividerPositions="0.1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="200.0" orientation="VERTICAL">
+              <items>
+                  <Label text="editor" />
+                  <TextArea fx:id="textarea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" />
+              </items>
+            </SplitPane>
+      </items>
+    </SplitPane>
+      <TabPane fx:id="consolePane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Console">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Text fx:id="consoletext" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+  </children>
+</VBox>
