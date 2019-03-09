@@ -149,3 +149,6 @@ CNOT q[2] q[0];
 CNOT q[0] q[2]
 </pre>
 
+## others
+In QSimulation_jar file, there is a executable file and some examples.
+
