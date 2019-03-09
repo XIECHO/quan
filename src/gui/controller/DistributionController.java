@@ -43,10 +43,9 @@ public class DistributionController {
                     //possValue =possValue + String.format("%.2f", possib[i]) + TenToBinary.ttb(i, possib.length);
                 }else {
                     if(possValue.equals("")) {
-
-                        possValue = possValue + String.format("%.4S", possib[i]) + TenToBinary.ttb(i, possib.length);
+                        possValue = possValue + String.format("%.4S", possib[i]) +"|" + i + ">" +"<" + i + "|";
                     }else {
-                        possValue = possValue  + "+" + String.format("%.4S", possib[i]) + TenToBinary.ttb(i, possib.length);
+                        possValue = possValue  + "+" + String.format("%.4S", possib[i]) +"|" + i + ">" +"<" + i + "|";
                     }
                 }
             }

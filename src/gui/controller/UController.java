@@ -40,7 +40,6 @@ public class UController extends Controller {
     @FXML
     private void handleAdd() {
         if (isInputValid()) {
-            addClicked = stepL;
             circuit.addOperator(new UOperator(targetL, id, p1, p2, p3), stepL);
             dialogStage.close();
         }

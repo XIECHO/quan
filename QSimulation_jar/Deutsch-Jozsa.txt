@@ -1,0 +1,9 @@
+ Quantum a 3;
+ X a[2];
+ H a[0];
+ H a[1];
+ H a[2];
+ CNOT a[0] a[2];
+ CNOT a[1] a[2];
+ H a[0];
+ H a[1]

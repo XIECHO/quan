@@ -64,8 +64,13 @@ public class Qubit {
 	}
 	
 	public String possibleValue() {
-		double[] temp = getPossiblesValue();
 		String tempS="";
+//		Complex[] temp1 = getPossibles();
+//		for(int i=0;i<Length();i++) {
+//			tempS=tempS + String.valueOf(temp1[i])+" ";
+//		}
+
+		double[] temp = getPossiblesValue();
 		for(int i=0;i<Length();i++) {
 			tempS=tempS + String.valueOf(temp[i])+" ";
 		}

@@ -267,9 +267,9 @@ public class CanvasManager implements Size{
             int location2 = target;
 
 
-            Circle circle = new Circle(startX + 15, rowspace * location1 + beginLineY, 13);
+            Circle circle = new Circle(startX + 15, rowspace * location1 + beginLineY, 6);
             circle.setFill(Color.DARKSEAGREEN);
-            Circle circle2 = new Circle(startX + 15, rowspace * location2 + beginLineY, 6);
+            Circle circle2 = new Circle(startX + 15, rowspace * location2 + beginLineY, 13);
             circle2.setFill(Color.DARKSEAGREEN);
             Line line = new Line(startX + 15, rowspace * location1 + beginLineY, startX + 15, rowspace * location2 + beginLineY);
             line.setStroke(Color.DARKSEAGREEN);

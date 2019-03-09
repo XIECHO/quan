@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -22,7 +27,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/MainThemes.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MainController">
+<VBox prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/MainThemes.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.controller.MainController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -46,7 +51,7 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Help">
           <items>
-            <MenuItem fx:id="helpMe" mnemonicParsing="false" onAction="#help" text="About QSimulation" />
+            <MenuItem fx:id="helpMe" mnemonicParsing="false" onAction="#help" text="About Qsimulation" />
           </items>
         </Menu>
       </menus>
@@ -72,6 +77,7 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
                   <RowConstraints minHeight="10.0" prefHeight="38.0" vgrow="NEVER" />
@@ -174,6 +180,17 @@
                      <font>
                         <Font size="8.0" />
                      </font></Button>
+                  <!--<Label text="Alogrithms" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />-->
+                  <!--<Button fx:id="grover" mnemonicParsing="false" onAction="#grover" prefHeight="25.0" prefWidth="25.0" text="Gro" userData="X" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="CENTER">-->
+                     <!--<font>-->
+                        <!--<Font size="7.0" />-->
+                     <!--</font>-->
+                  <!--</Button>-->
+                  <!--<Button fx:id="shor" mnemonicParsing="false" onAction="#grover" prefHeight="25.0" prefWidth="25.0" text="Sho" userData="X" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="15" GridPane.valignment="CENTER">-->
+                     <!--<font>-->
+                        <!--<Font size="7.0" />-->
+                     <!--</font>-->
+                  <!--</Button>-->
                </children>
             </GridPane>
             <SplitPane dividerPositions="0.5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="300.0" orientation="VERTICAL">

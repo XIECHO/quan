@@ -109,7 +109,42 @@ public class List_Measure extends ASTList {
                 //获取操作位置
                 int location = FindSource.findSource(env,argument1().toString());
 
-                UnaryDraw.draw(env,circuitpane,outcomepane,location,"M",num);
+                //1 13  因为老师要改线， 所以改成了这个样子
+                //UnaryDraw.draw(env,circuitpane,outcomepane,location,"M",num);
+                Qubit q = (Qubit)env.get("QuantumRegisterDX");
+                int changeNum = (int)env.get("changeDx");
+
+                //开始的位置
+                int startX = beginLineX + 20+  changeNum*rowspace;
+                Group g = new Group();
+
+                //三条横线
+                for (int i = 0; i < q.number(); i++) {
+                    Line l = new Line(startX, rowspace * i + beginLineY, startX + rowspace, rowspace * i + beginLineY);
+                    g.getChildren().add(l);
+                }
+
+                Rectangle r = new Rectangle(startX, rowspace * location + beginLineY -15, 30,30);
+                r.setFill(Color.RED);
+                Text t1 = new Text(startX, rowspace * location + beginLineY + 3 , "M");
+                t1.setWrappingWidth(30);
+                t1.setTextAlignment(TextAlignment.CENTER);
+                g.getChildren().addAll(r, t1);
+                circuitpane.getChildren().add(g);
+
+
+                outcomepane.getChildren().clear();
+                if(num == 1){
+                    Text outcome = new Text(10,20,"当前的状态为："+ AmpToBra.translate(q.getPossibles()));
+                    outcomepane.getChildren().add(outcome);
+                }
+                if(num == 2){
+                    Text outcome = new Text(10,20,"当前的状态为："+ q.matrix());
+                    outcomepane.getChildren().add(outcome);
+                }
+
+
+                env.put("changeDx",changeNum+1);
             }
 
 

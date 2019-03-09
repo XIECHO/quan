@@ -1,0 +1,13 @@
+Quantum a 3;
+Alias a[0] Alice1;
+Alias a[1] Alice2;
+Alias a[2] Bob;
+H Alice1;
+H Alice2;
+CNOT Alice2 Bob;
+CNOT Alice1 Alice2;
+H Alice1;
+Measure Alice1,i;
+Measure Alice2, j;
+if j then X Bob fi;
+if i then Z Bob fi

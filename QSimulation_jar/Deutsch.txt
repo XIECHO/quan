@@ -1,0 +1,7 @@
+ Quantum a 2;
+ X a[1];
+ H a[0];
+ H a[1];
+ CNOT a[0] a[1];
+ H a[0];
+ Measure a[0] , a

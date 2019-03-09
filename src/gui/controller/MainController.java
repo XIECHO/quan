@@ -331,15 +331,29 @@ public class MainController {
         }
     }
 
+    //Grover
+    @FXML
+    private void grover() throws  IOException{
+        clearpane();
+        String str =  main.showGrover();
+        Text text = new Text(15, 20, str);
+        outcomepane.getChildren().add(text);
+    }
+
 
     // 画图
     //画图的时候下标可能有问题
+
+    //1.9 这里因为步骤显示的有问题， 所以随便取了一个名字叫text111
+    Text text111 = new Text(15, 20,"");
     private void addAndDraw(int okClicked, String type) {
         //circuit 有几条命令
         int number = circuit.getNumberOfOperators();
         int temp = number -1;
-        Text text = new Text(15, 20,"步骤："+temp);
-        circuitpane.getChildren().add(text);
+        //Text text = new Text(15, 20,"步骤："+temp);
+        text111.setText("步骤："+temp);
+        circuitpane.getChildren().removeAll(text111);
+        circuitpane.getChildren().add(text111);
 
         if ((okClicked == number - 1) && (okClicked != -1)) {
 
@@ -364,6 +378,7 @@ public class MainController {
             // circuit.reInitializeRegisterQubits();
             //这里可能有问题的
             circuitpane.getChildren().remove(okClicked + 1, circuitpane.getChildren().size());
+            circuitpane.getChildren().add(text111);
             canvasManager.redrawOperatorsOnly(okClicked - 1);
         }
     }

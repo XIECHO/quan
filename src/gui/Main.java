@@ -8,7 +8,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 
 
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -40,7 +39,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
             this.primaryStage = primaryStage;
-            this.primaryStage.setTitle("QuantumOperator Simulation");
+            this.primaryStage.setTitle("Qsimulation");
             primaryStage.getIcons().add(new Image("file:src/gui/image/Quantum-setup-icon.png"));
 
             FXMLLoader loader = new FXMLLoader();
@@ -89,6 +88,15 @@ public class Main extends Application {
 
     }
 
+
+    //Grover
+
+    public String showGrover() throws IOException{
+
+        GroverController controller = (GroverController) showpane("view/Grover.fxml", "alogrithm");
+
+        return controller.handleAdd();
+    }
     //初始化寄存器
     public boolean showInitDialog() throws IOException {
        InitController controller = (InitController) showpane("view/Init.fxml","init");
@@ -101,6 +109,8 @@ public class Main extends Application {
         return true;
        // return controller.isAdd();
     }
+
+
 
     //单个比特门
     public int showUnaryDialog(String data) throws IOException {
